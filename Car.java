@@ -81,7 +81,7 @@ public class Car implements Movable{
     @Override
     public void turnRight() {
         direction +=1;
-        if (direction > 4){
+        if (direction > 3){
             direction = 0;
         }
     }
