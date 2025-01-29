@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Saab95 extends Car{
-    
+    private double currentSpeed;
     public Saab95(){
         nrDoors = 2;
         color = Color.red;
@@ -12,11 +12,11 @@ public class Saab95 extends Car{
     }
 
     public void incrementSpeed(double amount){
-       // currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     public void decrementSpeed(double amount){
-        //currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
     
     // TODO fix this method according to lab pm

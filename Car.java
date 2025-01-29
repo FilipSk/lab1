@@ -10,10 +10,10 @@ public class Car implements Movable{
     protected Color color; // Color of the car
     protected String modelName; // The car model name
     private final static double trimFactor = 1.25;
-    private double posX;
-    private double posY;
-    private int direction;
+    protected double posX;
+    protected double posY;
 
+    private int direction;
     int[] directionX = {1,0,-1,0 };
     int[] directionY = {0,-1,0,1 };
 
@@ -85,6 +85,8 @@ public class Car implements Movable{
             direction = 0;
         }
     }
+
+
 }
 
 
