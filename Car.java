@@ -19,7 +19,14 @@ public class Car implements Movable{
 
     // Array av vector2, [(1,0),(0,-1),(-1,0),(0,1)], int direction
     // Move x,y += array[direction] * speed
+    public Car(int nrDoors, double enginePower, Color color, String modelName){
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
+        stopEngine();
 
+    }
 
 
     public int getNrDoors(){

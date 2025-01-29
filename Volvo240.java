@@ -3,11 +3,7 @@ import java.awt.*;
 public class Volvo240 extends Car{
     private double currentSpeed;
     public Volvo240(){
-        nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo240";
-        stopEngine();
+        super(4, 100, Color.BLACK, "Volvo240");
     }
     /*
     public void incrementSpeed(double amount){
