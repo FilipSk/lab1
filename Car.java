@@ -3,13 +3,11 @@ import java.util.ArrayList;
 
 public class Car implements Movable{
 //t
-    protected boolean turboOn;
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
+    protected double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
     protected String modelName; // The car model name
-    private final static double trimFactor = 1.25;
     protected double posX;
     protected double posY;
 
@@ -56,26 +54,16 @@ public class Car implements Movable{
         currentSpeed = 0;
     }
 
-    public void setTurboOn(){
-        turboOn = true;
-    }
 
-    public void setTurboOff(){
-        turboOn = false;
-    }
 
-    public double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
-    }
+
 
     public void incrementSpeed(double amount){
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+        //currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
     public void decrementSpeed(double amount) {
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+        //currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
     public void gas(double amount){
