@@ -21,11 +21,31 @@ public class Saab95 extends Car{
     
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        incrementSpeed(amount);
+
+        if (amount < 0 || amount > 1) {
+            try {
+                throw new IllegalArgumentException();
+            } catch (Exception e) {
+                System.out.println("Du kan inte ge denna gasen " + e.toString());
+            }
+        }
+        else {
+            incrementSpeed(amount);
+        }
+
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        decrementSpeed(amount);
+        if (amount < 0 || amount > 1) {
+            try {
+                throw new IllegalArgumentException();
+            } catch (Exception e) {
+                System.out.println("Du kan ej bromsa så här " + e.toString());
+            }
+        }
+        else {
+            decrementSpeed(amount);
+        }
     }
 }

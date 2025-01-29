@@ -20,11 +20,11 @@ public class Volvo240 extends Car{
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        if (amount >= 1) {
+        if (amount > 1 || amount < 0) {
             try {
                 throw new IllegalArgumentException();
             } catch (Exception e) {
-                System.out.println("Too much gas, the car will break!" + e.toString());
+                System.out.println("Too much gas, the car will break! " + e.toString());
             }
         }
         else {
@@ -35,11 +35,11 @@ public class Volvo240 extends Car{
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        if (amount <= 0) {
+        if (amount < 0 || amount > 1 ) {
             try {
                 throw new IllegalArgumentException();
             } catch (Exception e) {
-                System.out.println("Din bil har inte ABS!!" + e.toString());
+                System.out.println("Din bil har inte ABS!! " + e.toString());
             }
         }
         else {
