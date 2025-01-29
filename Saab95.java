@@ -20,7 +20,6 @@ public class Saab95 extends Car{
         System.out.println("func");
         System.out.println(currentSpeed);
     }
-*/
     // TODO fix this method according to lab pm
     public void gas(double amount){
 
@@ -42,4 +41,6 @@ public class Saab95 extends Car{
             decrementSpeed(amount);
         }
     }
+
+ */
 }

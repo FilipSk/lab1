@@ -71,6 +71,26 @@ public class Car implements Movable{
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
+    public void gas(double amount){
+        if (amount > 1 || amount < 0) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            incrementSpeed(amount);
+        }
+
+    }
+
+    // TODO fix this method according to lab pm
+    public void brake(double amount){
+        if (amount < 0 || amount > 1 ) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            decrementSpeed(amount);
+        }
+    }
+
     @Override
     public void move() {
         posX += directionX[direction] * getCurrentSpeed();
