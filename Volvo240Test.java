@@ -19,5 +19,7 @@ class Volvo240Test {
 
         volvo.gas(0.5);
         assertTrue(volvo.getCurrentSpeed() > firstSpeed);
+
+        assertThrows(IllegalArgumentException.class, () -> volvo.gas(10));
     }
 }

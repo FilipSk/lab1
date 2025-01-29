@@ -11,8 +11,8 @@ class Saab95Test {
         saab.startEngine();
         double firstSpeed = saab.getCurrentSpeed();
         saab.decrementSpeed(0.05);
-        System.out.println(firstSpeed);
-        System.out.println(saab.getCurrentSpeed());
+        //System.out.println(firstSpeed);
+        //System.out.println(saab.getCurrentSpeed());
 
         assertTrue(saab.getCurrentSpeed() < firstSpeed);
     }
