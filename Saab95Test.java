@@ -23,6 +23,7 @@ class Saab95Test {
         double firstSpeed = saab.getCurrentSpeed();
         saab.gas(0.8);
         saab.brake(0.9);
+
         assertTrue(saab.getCurrentSpeed() < firstSpeed);
     }
 }

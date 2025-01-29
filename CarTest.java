@@ -49,6 +49,7 @@ class CarTest {
         volvo.move();
         volvo.turnLeft();
         volvo.move();
+        volvo.turnRight();
         assertNotEquals(firstX, volvo.posX);
         assertNotEquals(firstY, volvo.posY);
     }
