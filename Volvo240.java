@@ -9,7 +9,7 @@ public class Volvo240 extends Car{
         modelName = "Volvo240";
         stopEngine();
     }
-
+/*
     public void incrementSpeed(double amount){
 	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
@@ -17,7 +17,7 @@ public class Volvo240 extends Car{
     public void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
-
+*/
     // TODO fix this method according to lab pm
     public void gas(double amount){
         if (amount > 1 || amount < 0) {

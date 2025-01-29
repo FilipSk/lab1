@@ -63,6 +63,14 @@ public class Car implements Movable{
         return enginePower * 0.01 * turbo;
     }
 
+    public void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    }
+
+    public void decrementSpeed(double amount) {
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    }
+
     @Override
     public void move() {
         posX += directionX[direction] * getCurrentSpeed();

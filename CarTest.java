@@ -1,74 +1,55 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 class CarTest {
+    Volvo240 volvo = new Volvo240();
+    Saab95 saab = new Saab95();
+    @BeforeEach
+    void createNewCars() {
+        volvo = new Volvo240();
+        saab = new Saab95();
+    }
 
     @Test
     void getNrDoors() {
 
-    }
+        assertEquals(4, volvo.getNrDoors());
+        assertEquals(2, saab.getNrDoors());
 
+    }
     @Test
     void getEnginePower() {
+        assertEquals(100, volvo.getEnginePower());
+        assertEquals(125, saab.getEnginePower());
     }
-
-    @Test
-    void getCurrentSpeed() {
-    }
-
     @Test
     void getColor() {
+        assertEquals(Color.black, volvo.getColor());
+        assertEquals(Color.red, saab.getColor());
     }
-
-    @Test
-    void testGetNrDoors() {
-    }
-
-    @Test
-    void testGetEnginePower() {
-    }
-
-    @Test
-    void testGetCurrentSpeed() {
-    }
-
-    @Test
-    void testGetColor() {
-    }
-
-    @Test
-    void setColor() {
-    }
-
-    @Test
-    void startEngine() {
-    }
-
-    @Test
-    void stopEngine() {
-    }
-
-    @Test
-    void setTurboOn() {
-    }
-
-    @Test
-    void setTurboOff() {
-    }
-
-    @Test
-    void speedFactor() {
-    }
-
     @Test
     void move() {
+        saab.startEngine();
+        double firstY = saab.posY;
+        double firstX = saab.posX;
+        saab.move();
+
+        assertNotEquals(firstX, saab.posX);
+        assertEquals(firstY, saab.posY);
     }
 
     @Test
     void turnLeft() {
-    }
-
-    @Test
-    void turnRight() {
+        volvo.startEngine();
+        double firstY = volvo.posY;
+        double firstX = volvo.posX;
+        volvo.move();
+        volvo.turnLeft();
+        volvo.move();
+        assertNotEquals(firstX, volvo.posX);
+        assertNotEquals(firstY, volvo.posY);
     }
 }

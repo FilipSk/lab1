@@ -10,15 +10,17 @@ public class Saab95 extends Car{
         modelName = "Saab95";
         stopEngine();
     }
-
+/*
     public void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     public void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        System.out.println("func");
+        System.out.println(currentSpeed);
     }
-    
+*/
     // TODO fix this method according to lab pm
     public void gas(double amount){
 
