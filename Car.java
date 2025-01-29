@@ -3,17 +3,17 @@ import java.util.ArrayList;
 
 public class Car implements Movable{
 //t
-    protected int nrDoors; // Number of doors on the car
+    private int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
+    private Color color; // Color of the car
+    private String modelName; // The car model name
     protected double posX;
     protected double posY;
 
     private int direction;
-    int[] directionX = {1,0,-1,0 };
-    int[] directionY = {0,-1,0,1 };
+    private int[] directionX = {1,0,-1,0 };
+    private int[] directionY = {0,-1,0,1 };
 
     // Array av vector2, [(1,0),(0,-1),(-1,0),(0,1)], int direction
     // Move x,y += array[direction] * speed
