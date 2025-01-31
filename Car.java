@@ -1,8 +1,8 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Car implements Movable{
-//t
+public abstract class Car implements Movable{
+
     private int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -15,8 +15,6 @@ public class Car implements Movable{
     private int[] directionX = {1,0,-1,0 };
     private int[] directionY = {0,-1,0,1 };
 
-    // Array av vector2, [(1,0),(0,-1),(-1,0),(0,1)], int direction
-    // Move x,y += array[direction] * speed
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
@@ -46,25 +44,19 @@ public class Car implements Movable{
         color = clr;
     }
 
-    public void startEngine(){
+    protected void startEngine(){
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    protected void stopEngine(){
         currentSpeed = 0;
     }
 
 
 
+    public abstract void incrementSpeed(double amount);
 
-
-    public void incrementSpeed(double amount){
-        //currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-    }
-
-    public void decrementSpeed(double amount) {
-        //currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
-    }
+    public abstract void decrementSpeed(double amount);
 
     public void gas(double amount){
         if (amount > 1 || amount < 0) {
@@ -76,7 +68,6 @@ public class Car implements Movable{
 
     }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount){
         if (amount < 0 || amount > 1 ) {
             throw new IllegalArgumentException();
