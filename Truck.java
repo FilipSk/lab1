@@ -34,8 +34,8 @@ public class Truck extends Car{
     public void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - 1 * amount;
     }
-
-    public void speedFactor() {
-
+    @Override
+    public double speedFactor() {
+        return 0;
     }
 }
