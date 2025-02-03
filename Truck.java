@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Truck extends Car{
+public class Truck extends Flak{
     private int numOfCars;
     private int maxNumOfCars = 10;
     private double maxCarSize = 3; // Längd i meter
@@ -11,7 +11,7 @@ public class Truck extends Car{
     private ArrayList<String> cars = new ArrayList<>();
 
     public Truck() {
-        super(2, 780, Color.black, "Volvo FH16");
+        super(2, 780, Color.black, "Volvo FH16", 0,70);
     }
 
     public void loadCar(double carSize, String carName, double distance) {
