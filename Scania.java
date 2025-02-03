@@ -23,6 +23,8 @@ public class Scania extends Flak{
         if (getAngleOfTruckBed() > getMinOfTruckBed()){
             return;
         }
+        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+
     }
 
     @Override
