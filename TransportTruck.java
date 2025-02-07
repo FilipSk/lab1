@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class TransportTruck extends Truck{
 
@@ -8,7 +9,7 @@ public class TransportTruck extends Truck{
     private double maxCarSize = 3; // Längd i meter
     private boolean rampIsUp;
     private double maxDistance;
-    private ArrayList<String> cars = new ArrayList<>();
+    private Stack<String> cars = new Stack<>();
 
     public TransportTruck(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName, 0,1);
@@ -33,18 +34,22 @@ public class TransportTruck extends Truck{
         if (carSize <= maxCarSize || distance <= maxDistance ||
                 numOfCars < maxNumOfCars || getCurrentSpeed() == 0 || !rampIsUp) {
             numOfCars += 1;
-            cars.add(carName);
+            cars.push(carName);
         }
         else {
-            System.out.println("Error!");
+            throw new IllegalArgumentException("Error!");
         }
     }
 
-    public void deloadCar(String carName) {
-        if (cars.contains(carName) || getCurrentSpeed() == 0 || !rampIsUp) {
-            numOfCars -= 1;
-            cars.remove(carName);
-
+    public void deloadCar() {
+        if (getCurrentSpeed() == 0 || !rampIsUp) {
+            if (numOfCars != 0) {
+                numOfCars -= 1;
+                cars.pop();
+            }
+            else {
+                throw new IllegalArgumentException("No cars on the truck");
+            }
         }
         else {
             System.out.println("Error!");
