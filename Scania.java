@@ -2,33 +2,13 @@ import java.awt.*;
 
 public class Scania extends Truck{
 
-    private double bedAngle;
-    private final double maxBedAngle;
-    private final double minBedAngle;
-
     public Scania(){
-        super(2, 770, Color.BLUE, "Scania");
-        maxBedAngle = 70;
-        minBedAngle = 0;
-    }
-
-    @Override
-    public void increaseBedAngle() {
-    }
-
-    @Override
-    public void decreaseBedAngle() {
-
-    }
-
-    @Override
-    public void getBedAngle() {
-
+        super(2, 770, Color.BLUE, "Scania", 0 ,70);
     }
 
     @Override
     public void incrementSpeed(double amount) {
-        if (bedAngle > minBedAngle){
+        if (getBedAngle() > minBedAngle){
             return;
         }
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
@@ -36,7 +16,7 @@ public class Scania extends Truck{
 
     @Override
     public void decrementSpeed(double amount) {
-        if (bedAngle > maxBedAngle){
+        if (getBedAngle() > maxBedAngle){
             return;
         }
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;

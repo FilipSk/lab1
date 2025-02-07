@@ -11,7 +11,7 @@ public class TransportTruck extends Truck{
     private ArrayList<String> cars = new ArrayList<>();
 
     public TransportTruck(int nrDoors, double enginePower, Color color, String modelName) {
-        super(nrDoors, enginePower, color, modelName);
+        super(nrDoors, enginePower, color, modelName, 0,1);
     }
 
     @Override
@@ -51,18 +51,4 @@ public class TransportTruck extends Truck{
         }
     }
 
-    @Override
-    public void increaseBedAngle() {
-
-    }
-
-    @Override
-    public void decreaseBedAngle() {
-
-    }
-
-    @Override
-    public void getBedAngle() {
-
-    }
 }
