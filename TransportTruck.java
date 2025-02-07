@@ -6,7 +6,7 @@ public class TransportTruck extends Truck{
 
     private int numOfCars;
     private int maxNumOfCars = 10;
-    private double maxCarSize = 3; // Längd i meter
+    private double maxCarSize = 5; // Längd i meter
     private boolean rampIsUp;
     private double maxDistance;
     private Stack<String> cars = new Stack<>();
@@ -29,12 +29,15 @@ public class TransportTruck extends Truck{
     public double speedFactor() {
         return 0;
     }
-
-    public void loadCar(double carSize, String carName, double distance) {
-        if (carSize <= maxCarSize || distance <= maxDistance ||
+    private void setCarPos(Car car){
+        car.posX = this.posX;
+        car.posY = this.posY;
+    }
+    public void loadCar(Car car, double distance) {
+        if (car.getSize() <= maxCarSize || distance <= maxDistance ||
                 numOfCars < maxNumOfCars || getCurrentSpeed() == 0 || !rampIsUp) {
             numOfCars += 1;
-            cars.push(carName);
+            cars.push(car.getname());
         }
         else {
             throw new IllegalArgumentException("Error!");
