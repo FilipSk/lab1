@@ -15,14 +15,25 @@ public class Truck extends Flak{
     }
 
     public void loadCar(double carSize, String carName, double distance) {
-        if (carSize <= maxCarSize || distance <= maxDistance || numOfCars < maxNumOfCars || !isMoving || rampIsUp) {
+        if (carSize <= maxCarSize || distance <= maxDistance || numOfCars < maxNumOfCars) {
             numOfCars += 1;
             cars.add(carName);
         }
+        else {
+            System.out.println("Error!");
+        }
     }
 
+    public void deloadCar(double carSize, String carName, double distance) {
+        if (cars.contains(carName) || carSize <= maxCarSize || distance <= maxDistance || numOfCars < maxNumOfCars ||) {
+            numOfCars -= 1;
+            cars.remove(carName);
 
-
+        }
+        else {
+            System.out.println("Error!");
+        }
+    }
 
 
     @Override

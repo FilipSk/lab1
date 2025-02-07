@@ -15,15 +15,7 @@ public abstract class Flak extends Car{
         this.maxBedAngle = _maxBedAngle;
         //this.angleChange = _angleChange;
     }
-    public double getAngleOfTruckBed(){
-        return bedAngle;
-    }
-    public double getMaxAngleOfTruckBed(){
-        return maxBedAngle;
-    }
-    public double getMinOfTruckBed(){
-        return minBedAngle;
-    }
+
 
     public void increaseBedAngle(){
         if (currentSpeed != 0){
