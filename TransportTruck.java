@@ -7,7 +7,6 @@ public class TransportTruck extends Truck{
     private int maxNumOfCars = 10;
     private double maxCarSize = 3; // Längd i meter
     private boolean rampIsUp;
-    private boolean isMoving;
     private double maxDistance;
     private ArrayList<String> cars = new ArrayList<>();
 
@@ -31,7 +30,8 @@ public class TransportTruck extends Truck{
     }
 
     public void loadCar(double carSize, String carName, double distance) {
-        if (carSize <= maxCarSize || distance <= maxDistance || numOfCars < maxNumOfCars) {
+        if (carSize <= maxCarSize || distance <= maxDistance ||
+                numOfCars < maxNumOfCars || getCurrentSpeed() == 0 || !rampIsUp) {
             numOfCars += 1;
             cars.add(carName);
         }
@@ -40,8 +40,8 @@ public class TransportTruck extends Truck{
         }
     }
 
-    public void deloadCar(double carSize, String carName, double distance) {
-        if (cars.contains(carName) || carSize <= maxCarSize || distance <= maxDistance || numOfCars < maxNumOfCars) {
+    public void deloadCar(String carName) {
+        if (cars.contains(carName) || getCurrentSpeed() == 0 || !rampIsUp) {
             numOfCars -= 1;
             cars.remove(carName);
 
