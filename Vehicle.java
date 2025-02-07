@@ -1,7 +1,6 @@
 import java.awt.*;
-import java.util.ArrayList;
 
-public abstract class Car implements Movable{
+public abstract class Vehicle implements Movable{
 
     private int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
@@ -15,7 +14,7 @@ public abstract class Car implements Movable{
     private int[] directionX = {1,0,-1,0 };
     private int[] directionY = {0,-1,0,1 };
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName){
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;

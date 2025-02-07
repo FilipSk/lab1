@@ -1,18 +1,34 @@
 import java.awt.*;
 
-public class Scania extends Flak{
+public class Scania extends Truck{
 
-
+    private double bedAngle;
+    private final double maxBedAngle;
+    private final double minBedAngle;
 
     public Scania(){
-        super(2, 770, Color.BLUE, "Scania", 0, 70);
+        super(2, 770, Color.BLUE, "Scania");
+        maxBedAngle = 70;
+        minBedAngle = 0;
+    }
+
+    @Override
+    public void increaseBedAngle() {
+    }
+
+    @Override
+    public void decreaseBedAngle() {
 
     }
 
+    @Override
+    public void getBedAngle() {
+
+    }
 
     @Override
     public void incrementSpeed(double amount) {
-        if (getAngleOfTruckBed() > getMinOfTruckBed()){
+        if (bedAngle > minBedAngle){
             return;
         }
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
@@ -20,7 +36,7 @@ public class Scania extends Flak{
 
     @Override
     public void decrementSpeed(double amount) {
-        if (getAngleOfTruckBed() > getMinOfTruckBed()){
+        if (bedAngle > maxBedAngle){
             return;
         }
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;

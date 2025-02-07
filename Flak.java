@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Flak extends Car{
+public abstract class Flak extends Vehicle{
     private double bedAngle;
     private final double maxBedAngle;
     private final double minBedAngle;
@@ -16,8 +16,7 @@ public abstract class Flak extends Car{
         //this.angleChange = _angleChange;
     }
 
-
-    public void increaseBedAngle(){
+    public void increaseBedAnge(){
         if (currentSpeed != 0){
             return;
         }
