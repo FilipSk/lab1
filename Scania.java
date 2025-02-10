@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Scania extends Truck{
+public class Scania extends TruckBed{
 
     public Scania(){
         super(2, 770, Color.BLUE, "Scania", 0 ,70);

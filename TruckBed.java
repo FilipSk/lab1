@@ -1,6 +1,30 @@
-public interface TruckBed {
-    void increaseBedAngle();
-    void decreaseBedAngle();
-    int getBedAngle();
+import java.awt.*;
 
+public abstract class TruckBed extends Truck {
+
+    private double bedAngle;
+    public final double maxBedAngle;
+    public final double minBedAngle;
+
+    public TruckBed(int nrDoors, double enginePower, Color color, String modelName, double minBedAngle, double maxBedAngle) {
+        super(nrDoors, enginePower, color, modelName, minBedAngle, maxBedAngle);
+    }
+
+    public void increaseBedAngle(double angle) {
+        bedAngle += angle;
+        if (bedAngle > maxBedAngle) {
+            bedAngle = maxBedAngle;
+        }
+    }
+
+    public void decreaseBedAngle(double angle) {
+        bedAngle -= angle;
+        if (bedAngle < minBedAngle) {
+            bedAngle = minBedAngle;
+        }
+    }
+
+    public double getBedAngle() {
+        return bedAngle;
+    }
 }

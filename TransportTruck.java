@@ -9,10 +9,10 @@ public class TransportTruck extends Truck{
     private double maxCarSize = 5; // Längd i meter
     private boolean rampIsUp;
     private double maxDistance;
-    private Stack<String> cars = new Stack<>();
+    private Stack<Car> cars = new Stack<>();
 
     public TransportTruck(int nrDoors, double enginePower, Color color, String modelName) {
-        super(nrDoors, enginePower, color, modelName, 0,1);
+        super(nrDoors, enginePower, color, modelName);
     }
 
     @Override
@@ -35,9 +35,11 @@ public class TransportTruck extends Truck{
     }
     public void loadCar(Car car, double distance) {
         if (car.getSize() <= maxCarSize || distance <= maxDistance ||
-                numOfCars < maxNumOfCars || getCurrentSpeed() == 0 || !rampIsUp) {
+                numOfCars < maxNumOfCars || getCurrentSpeed() == 0 || !rampIsUp
+            && !cars.contains(car)) {
+
             numOfCars += 1;
-            cars.push(car.getname());
+            cars.push(car);
         }
         else {
             throw new IllegalArgumentException("Error!");
@@ -46,7 +48,7 @@ public class TransportTruck extends Truck{
 
     public void deloadCar() {
         if (getCurrentSpeed() == 0 || !rampIsUp) {
-            if (numOfCars != 0) {
+            if (numOfCars != 0 ) {
                 numOfCars -= 1;
                 cars.pop();
             }
@@ -59,4 +61,15 @@ public class TransportTruck extends Truck{
         }
     }
 
+    public void setRampUp() {
+        rampIsUp = true;
+    }
+
+    public void setRampDown() {
+        rampIsUp = false;
+    }
+
+    public boolean getRampMode() {
+        return rampIsUp;
+    }
 }
