@@ -5,7 +5,7 @@ public class Saab95 extends Car{
     protected boolean turboOn;
 
     public Saab95(){
-        super(2, 125, Color.red, "Saab95");
+        super(2, 125, Color.red, "Saab95", 4.83);
         setTurboOff();
     }
     @Override

@@ -8,7 +8,7 @@ public class Scania extends TruckBed{
 
     @Override
     public void incrementSpeed(double amount) {
-        if (getBedAngle() > minBedAngle){
+        if (getBedAngle() < minBedAngle){
             return;
         }
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
