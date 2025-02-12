@@ -20,7 +20,7 @@ public class TransportTruck extends Truck{
     }
 
     @Override
-    public void incrementSpeed(double amount) {
+    protected void incrementSpeed(double amount) {
         if (!rampIsUp){
             throw new IllegalArgumentException("Rampen är uppe!");
         }
@@ -28,7 +28,7 @@ public class TransportTruck extends Truck{
     }
 
     @Override
-    public void decrementSpeed(double amount) {
+    protected void decrementSpeed(double amount) {
         if (!rampIsUp){
             throw new IllegalArgumentException("Rampen är uppe!");
         }

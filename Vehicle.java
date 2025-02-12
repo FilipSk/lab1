@@ -57,10 +57,10 @@ public abstract class Vehicle implements Movable{
 
 
 
-    public abstract void incrementSpeed(double amount);
+    protected abstract void incrementSpeed(double amount);
 
-    public abstract void decrementSpeed(double amount);
-    public abstract double speedFactor();
+    protected abstract void decrementSpeed(double amount);
+    protected abstract double speedFactor();
 
     public void gas(double amount){
         if (amount > 1 || amount < 0) {

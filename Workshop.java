@@ -13,13 +13,18 @@ public class Workshop <T extends Car> {
             throw new IllegalArgumentException("This car is already in workshop");
         }
 
-        if (cars.size() < maxCars) {
+        if (isNotFull()) {
             cars.add(car);
         }
         else {
             throw new IllegalArgumentException("This workshop is full");
         }
     }
+
+    private boolean isNotFull() {
+        return cars.size() < maxCars;
+    }
+
     public void deloadCar(T car) {
         if (cars.contains(car)) {
             cars.remove(car);
