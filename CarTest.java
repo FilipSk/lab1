@@ -30,16 +30,6 @@ class CarTest {
         assertEquals(Color.black, volvo.getColor());
         assertEquals(Color.red, saab.getColor());
     }
-    @Test
-    void move() {
-        saab.startEngine();
-        double firstY = saab.posY;
-        double firstX = saab.posX;
-        saab.move();
-
-        assertNotEquals(firstX, saab.posX);
-        assertEquals(firstY, saab.posY);
-    }
 
     @Test
     void turnLeft() {

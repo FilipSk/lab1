@@ -11,23 +11,41 @@ public class TransportTruck extends Truck{
     private double maxDistance;
     private Stack<Car> cars = new Stack<>();
 
-    public TransportTruck(int nrDoors, double enginePower, Color color, String modelName) {
-        super(nrDoors, enginePower, color, modelName);
+    public TransportTruck() {
+        super(2, 1000, Color.blue, "Volvo Truck");
+    }
+
+    public Stack<Car> carStack() {
+        return cars;
     }
 
     @Override
     public void incrementSpeed(double amount) {
-
+        if (!rampIsUp){
+            throw new IllegalArgumentException("Rampen är uppe!");
+        }
+        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     @Override
     public void decrementSpeed(double amount) {
+        if (!rampIsUp){
+            throw new IllegalArgumentException("Rampen är uppe!");
+        }
+        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+    }
 
+    @Override
+    public void move() {
+        super.move();
+        for (Car car : cars) {
+            setCarPos(car);
+        }
     }
 
     @Override
     public double speedFactor() {
-        return 0;
+        return this.getEnginePower() / 100;
     }
     private void setCarPos(Car car){
         car.posX = this.posX;
@@ -40,6 +58,7 @@ public class TransportTruck extends Truck{
 
             numOfCars += 1;
             cars.push(car);
+            setCarPos(car);
         }
         else {
             throw new IllegalArgumentException("Error!");

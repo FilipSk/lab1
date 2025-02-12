@@ -8,16 +8,16 @@ public class Scania extends TruckBed{
 
     @Override
     public void incrementSpeed(double amount) {
-        if (getBedAngle() < minBedAngle){
-            return;
+        if (getBedAngle() < getMinBedAngle()){
+            throw new IllegalArgumentException("Rampen är uppe!");
         }
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
     @Override
     public void decrementSpeed(double amount) {
-        if (getBedAngle() > maxBedAngle){
-            return;
+        if (getBedAngle() > getMaxBedAngle()){
+            throw new IllegalArgumentException("Rampen är uppe!");
         }
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
 
@@ -25,6 +25,6 @@ public class Scania extends TruckBed{
 
     @Override
     public double speedFactor() {
-        return 0;
+        return this.getEnginePower() / 100;
     }
 }

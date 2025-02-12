@@ -3,8 +3,8 @@ import java.awt.*;
 public abstract class TruckBed extends Truck {
 
     private double bedAngle;
-    public final double maxBedAngle;
-    public final double minBedAngle;
+    private final double maxBedAngle;
+    private final double minBedAngle;
 
     public TruckBed(int nrDoors, double enginePower, Color color, String modelName, double _minBedAngle, double _maxBedAngle) {
         super(nrDoors, enginePower, color, modelName);
@@ -28,5 +28,11 @@ public abstract class TruckBed extends Truck {
 
     public double getBedAngle() {
         return bedAngle;
+    }
+    public double getMinBedAngle() {
+        return minBedAngle;
+    }
+    public double getMaxBedAngle() {
+        return maxBedAngle;
     }
 }
